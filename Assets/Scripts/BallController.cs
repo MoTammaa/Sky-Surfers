@@ -62,22 +62,27 @@ public class BallController : MonoBehaviour
 
     IEnumerator SwitchLane(int targetLane)
     {
+        // ynfreeze x position
+        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         this.lane = targetLane;
-        float targetX = targetLane * 2; // Convert lane index to x position {-2, 0, 2}
+        float tarX = targetLane * 2; // Convert lane index to x position {-2, 0, 2}
         float startX = this.transform.position.x;
-        float elapsedTime = 0f;
+        float elpTime = 0f;
         float duration = 0.18f;
 
-        while (Math.Abs(this.transform.position.x - targetX) > 0.01f)
+        while (Math.Abs(this.transform.position.x - tarX) > 0.01f)
         {
-            elapsedTime += Time.deltaTime;
-            float newX = Mathf.Lerp(startX, targetX, elapsedTime / duration);
+            elpTime += Time.deltaTime;
+            float newX = Mathf.Lerp(startX, tarX, elpTime / duration);
             this.transform.position = new Vector3(newX, this.transform.position.y, this.transform.position.z);
             yield return null;
         }
 
         // adjust params for consistency
-        this.transform.position = new Vector3(targetX, this.transform.position.y, this.transform.position.z);
+        this.transform.position = new Vector3(tarX, this.transform.position.y, this.transform.position.z);
+        // freeze x position using constraints
+        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+
         StopCoroutine(currentLaneSwitchCoroutine);
         currentLaneSwitchCoroutine = null;
     }
