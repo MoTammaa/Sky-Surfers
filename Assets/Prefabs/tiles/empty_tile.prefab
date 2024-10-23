@@ -13,6 +13,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4426389087557633460, guid: 9372d473b4c300b42b39690e1a393542, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426389087557633460, guid: 9372d473b4c300b42b39690e1a393542, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941642913916760806, guid: 9372d473b4c300b42b39690e1a393542, type: 3}
       propertyPath: m_Name
-      value: empty_tile Variant
+      value: empty_tile
       objectReference: {fileID: 0}
     - target: {fileID: 8606989608139501965, guid: 9372d473b4c300b42b39690e1a393542, type: 3}
       propertyPath: m_Size.y

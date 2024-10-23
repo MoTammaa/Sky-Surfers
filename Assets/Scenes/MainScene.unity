@@ -877,8 +877,24 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 108
+  m_Constraints: 104
   m_CollisionDetection: 0
+--- !u!114 &1764714058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764714053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1d83d70f16fd3439c5b9f4175b39e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &2065109624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1031,6 +1047,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4181266670078451523, guid: af2c80bd0a1879e49b0ca0f1c3a0ac34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1764714054}
+    - targetCorrespondingSourceObject: {fileID: 4181266670078451523, guid: af2c80bd0a1879e49b0ca0f1c3a0ac34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1764714058}
   m_SourcePrefab: {fileID: 100100000, guid: af2c80bd0a1879e49b0ca0f1c3a0ac34, type: 3}
 --- !u!1001 &1535635637338790965
 PrefabInstance:
@@ -1469,6 +1488,6 @@ SceneRoots:
   - {fileID: 387662736}
   - {fileID: 963194228}
   - {fileID: 705507995}
-  - {fileID: 452728450}
   - {fileID: 1329374096879304607}
+  - {fileID: 452728450}
   - {fileID: 7965279970933413824}
