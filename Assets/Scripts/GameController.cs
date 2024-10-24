@@ -9,10 +9,14 @@ public class GameController : MonoBehaviour
 {
     public static List<GameObject> Tiles;
     public static GameObject EmptyChunk;
+    [Range(0.1f, 1.5f)]
+    public static float GameSpeedMultiplier = 1.5f;
 
     public List<GameObject> tiles;
     public GameObject emptyChunk;
     public GameObject ball;
+    [Range(0.5f, 2.5f)]
+    public float gameSpeedMultiplier = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameSpeedMultiplier = gameSpeedMultiplier;
     }
 
 }

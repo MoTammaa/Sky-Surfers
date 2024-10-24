@@ -12,8 +12,9 @@ public class BallController : MonoBehaviour
     public LayerMask groundLayer;
     private bool isGrounded;
     private bool canJump = true; // Cooldown flag
-    public float jumpCooldown = 0.2f;
+    public float jumpCooldown = 0.4f;
     private float rayDistance;
+    private float initialY;
 
 
     void Start()
@@ -25,6 +26,8 @@ public class BallController : MonoBehaviour
 
         // Adjust your ray distance slightly above the player height
         rayDistance = playerHeight / 2 + 0.1f;
+
+        initialY = transform.position.y;
 
     }
 
@@ -38,6 +41,10 @@ public class BallController : MonoBehaviour
     {
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, rayDistance, groundLayer);
+        // if (isGrounded)
+        // {
+        //     transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
+        // }
         if (Input.GetButtonDown("Jump") && isGrounded && canJump)
         {
             Jump();

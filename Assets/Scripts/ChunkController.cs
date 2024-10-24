@@ -14,11 +14,11 @@ public class ChunkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(0, 0, -8);
+        rb.velocity = new Vector3(0, 0, -8 * GameController.GameSpeedMultiplier);
     }
 }
