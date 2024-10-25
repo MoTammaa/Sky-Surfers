@@ -41,7 +41,27 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0;
         }
 
+        if (game.CurrentState == Game.GameState.Playing)
+        {
+            UpdateFuel();
+            UpdateText_ScoreFuelSpeed();
+        }
+    }
+
+    void UpdateFuel()
+    {
+        game.fuel -= game.fuelRate * Time.deltaTime;
+        if (game.fuel <= 0)
+        {
+            game.CurrentState = Game.GameState.GameOver;
+        }
+    }
+
+    void UpdateText_ScoreFuelSpeed()
+    {
+        scoreFuelText.text = "Score: " + game.Score + "\nFuel: " + Math.Round(game.fuel, 0);
         speedText.text = "Speed: " + (game.GameSpeedMultiplier == 1f ? "Normal" : "High");
     }
+
 
 }

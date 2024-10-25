@@ -17,7 +17,7 @@ public class Game
 
     public int Score = 0;
     public int fuelRate = 1;
-    public int fuel = 50;
+    public float fuel = 50f;
 
     [Range(0.5f, 2.5f)]
     public float GameSpeedMultiplier = 1f;
@@ -38,10 +38,16 @@ public class Game
         {
             yield return new WaitForSeconds(1);
             Score += 1;
-            GameController.current.scoreFuelText.text = "Score: " + Score + "\nFuel: " + fuel;
         }
 
         yield return null;
+    }
+
+    public void EndGame()
+    {
+        CurrentState = GameState.GameOver;
+        Time.timeScale = 0;
+        GameController.print("Game Over");
     }
 
 }
