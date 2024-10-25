@@ -479,16 +479,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519a37ea5b5af5743b261243efb01b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
+  Tiles:
   - {fileID: 5941642913916760806, guid: 9372d473b4c300b42b39690e1a393542, type: 3}
   - {fileID: 7251817071267485118, guid: 65e8a3217428c5940b56ea3c078b7dea, type: 3}
   - {fileID: 7539217661825591429, guid: dd83dbf0487b0ee41b00b8423b860e24, type: 3}
   - {fileID: 144765739829128699, guid: 7300f2ad1b5cffe49bd70744cbe67d07, type: 3}
   - {fileID: 4187431918552118095, guid: a05a625dc109aca4d9b84d846bad43a7, type: 3}
   - {fileID: 1110384490606739733, guid: 011d6b77f75b8b44a8d84fff599adfb0, type: 3}
-  emptyChunk: {fileID: 5621751952855727974, guid: 8a25fbd5e3e2da74a92d3599d574cd80, type: 3}
+  EmptyChunk: {fileID: 5621751952855727974, guid: 8a25fbd5e3e2da74a92d3599d574cd80, type: 3}
   ball: {fileID: 1764714053}
-  gameSpeedMultiplier: 1
+  GameSpeedMultiplier: 1
 --- !u!1001 &452728450
 PrefabInstance:
   m_ObjectHideFlags: 0

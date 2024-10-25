@@ -28,7 +28,7 @@ public class TileController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameController.Tiles.Remove(gameObject);
+            GameController.current.Tiles.Remove(gameObject);
             Destroy(gameObject);
         }
     }
