@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using static Tile;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour
     [Range(0.5f, 2.5f)]
     // public float GameSpeedMultiplier = 1f;
     public Game game;
+    public TMPro.TextMeshProUGUI scoreFuelText, speedText;
 
     #endregion
 
@@ -38,6 +40,8 @@ public class GameController : MonoBehaviour
             Debug.Log("Game Over");
             Time.timeScale = 0;
         }
+
+        speedText.text = "Speed: " + (game.GameSpeedMultiplier == 1f ? "Normal" : "High");
     }
 
 }

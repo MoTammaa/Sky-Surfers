@@ -38,6 +38,7 @@ public class Game
         {
             yield return new WaitForSeconds(1);
             Score += 1;
+            GameController.current.scoreFuelText.text = "Score: " + Score + "\nFuel: " + fuel;
         }
 
         yield return null;
