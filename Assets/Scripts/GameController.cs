@@ -43,13 +43,14 @@ public class GameController : MonoBehaviour
 
         if (game.CurrentState == Game.GameState.Playing)
         {
-            UpdateFuel();
+            UpdateFuelnScore();
             UpdateText_ScoreFuelSpeed();
         }
     }
 
-    void UpdateFuel()
+    void UpdateFuelnScore()
     {
+        game.Score += Time.deltaTime;
         game.fuel -= game.fuelRate * Time.deltaTime;
         if (game.fuel <= 0)
         {
@@ -59,7 +60,7 @@ public class GameController : MonoBehaviour
 
     void UpdateText_ScoreFuelSpeed()
     {
-        scoreFuelText.text = "Score: " + game.Score + "\nFuel: " + Math.Round(game.fuel, 0);
+        scoreFuelText.text = "Score: " + Math.Round(game.Score, 0) + "\nFuel: " + Math.Round(game.fuel, 0);
         speedText.text = "Speed: " + (game.GameSpeedMultiplier == 1f ? "Normal" : "High");
     }
 

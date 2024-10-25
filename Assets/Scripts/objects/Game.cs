@@ -15,7 +15,7 @@ public class Game
 
     public GameState CurrentState { get; set; } = GameState.Starting;
 
-    public int Score = 0;
+    public float Score = 0.0f;
     public int fuelRate = 1;
     public float fuel = 50f;
 
@@ -28,19 +28,6 @@ public class Game
         Score = 0;
         fuel = 50;
         fuelRate = 1;
-
-        GameController.current.StartCoroutine(GameTimer());
-    }
-
-    IEnumerator GameTimer()
-    {
-        while (CurrentState == GameState.Playing)
-        {
-            yield return new WaitForSeconds(1);
-            Score += 1;
-        }
-
-        yield return null;
     }
 
     public void EndGame()
