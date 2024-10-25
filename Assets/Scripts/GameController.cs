@@ -17,8 +17,9 @@ public class GameController : MonoBehaviour
     public GameObject EmptyChunk;
     public GameObject ball;
     [Range(0.5f, 2.5f)]
-    public float GameSpeedMultiplier = 1f;
+    // public float GameSpeedMultiplier = 1f;
     public Game game;
+
     #endregion
 
     // Start is called before the first frame update
@@ -26,10 +27,17 @@ public class GameController : MonoBehaviour
     {
         current = this;
         game = new Game();
+        game.StartGame();
     }
     // Update is called once per frame
     void Update()
     {
+        // game.GameSpeedMultiplier = GameSpeedMultiplier;
+        if (game.CurrentState == Game.GameState.GameOver)
+        {
+            Debug.Log("Game Over");
+            Time.timeScale = 0;
+        }
     }
 
 }

@@ -19,6 +19,6 @@ public class ChunkController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(0, 0, -8 * GameController.current.GameSpeedMultiplier);
+        rb.velocity = new Vector3(0, 0, -8 * GameController.current.game.GameSpeedMultiplier);
     }
 }

@@ -21,9 +21,9 @@ public class TileDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if ((groundLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            print("Player entered Detector");
+            Tile.DoAction(other.gameObject.name);
         }
     }
 
@@ -31,11 +31,7 @@ public class TileDetector : MonoBehaviour
     {
         if ((groundLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            print("Ground detected: " + other.gameObject.name);
-        }
-        if (other.gameObject.CompareTag("Player"))
-        {
-            print("Player is in Detector");
+            Tile.DoAction(other.gameObject.name);
         }
     }
 }

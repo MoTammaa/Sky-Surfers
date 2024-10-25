@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Game;
 
 public class Tile
 {
@@ -23,32 +24,33 @@ public class Tile
         {
             case TileType.Empty:
                 {
-
+                    GameController.current.game.CurrentState = GameState.GameOver;
                     break;
                 }
             case TileType.Burning:
                 {
-                    Debug.Log("Do Burning Action");
+                    GameController.current.game.fuelRate = 10;
                     break;
                 }
             case TileType.Supplies:
                 {
-                    Debug.Log("Do Supplies Action");
+                    GameController.current.game.fuel = 50;
                     break;
                 }
             case TileType.Boost:
                 {
-                    Debug.Log("Do Boost Action");
+                    GameController.current.game.GameSpeedMultiplier = 2.25f;
                     break;
                 }
             case TileType.Sticky:
                 {
-                    Debug.Log("Do Sticky Action");
+                    GameController.current.game.GameSpeedMultiplier = 1f;
                     break;
                 }
             default:
                 {
-                    Debug.Log("Do Default Normal Action");
+                    // revert to normal
+                    GameController.current.game.fuelRate = 1;
                     break;
                 }
         }
