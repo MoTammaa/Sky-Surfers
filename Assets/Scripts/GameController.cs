@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 {
     #region Static Variables
     public static GameController current;
+    public static bool SoundEnabled = true;
     #endregion
 
     #region Instance Variables
