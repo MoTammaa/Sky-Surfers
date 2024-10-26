@@ -1,2 +1,18 @@
 .button {
+    background-image: url("project://database/Assets/TechnoGami/2d%20UI%20button/AllSection/Section01/BlankButton.png?fileID=21300000&guid=8d30fc405704e214498ee00bc05c50ad&type=3#BlankButton");
+    align-self: center;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 159%;
+    width: 30%;
+    color: rgb(255, 255, 255);
+    -unity-font: url("project://database/Assets/Alien%20GUI/Fonts/VanillaExtractRegular.ttf?fileID=12800000&guid=46116bccf076fe94197da8e0489365e0&type=3#VanillaExtractRegular");
+    -unity-font-style: bold;
+    height: 75px;
+    min-width: 30%;
+    max-width: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    -unity-font-definition: initial;
 }

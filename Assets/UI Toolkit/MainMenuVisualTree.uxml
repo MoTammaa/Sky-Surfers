@@ -1,5 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/USS/MainMenuSS.uss?fileID=7433441132597879392&amp;guid=85b961ee4d1b39745af600dd2a077f50&amp;type=3#MainMenuSS" />
-    <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" />
-    <ui:VisualElement name="Container" style="flex-grow: 1;" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; -unity-background-image-tint-color: rgb(81, 81, 81); background-image: url(&quot;project://database/Assets/Alien%20GUI/Sprites/Backgrounds/background_1.png?fileID=21300000&amp;guid=1ea51012dbe146f46885e1bff4078acb&amp;type=3#background_1&quot;);">
+        <ui:Label tabindex="-1" text="Main Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="title" style="align-self: center; font-size: 74%; -unity-font: url(&quot;project://database/Assets/Thaleah_PixelFont/Materials/ThaleahFat_TTF.ttf?fileID=12800000&amp;guid=585188cdc4600544eb408bee749e4b3a&amp;type=3#ThaleahFat_TTF&quot;); -unity-font-definition: initial; margin-top: 14%;" />
+        <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start" class="button" style="justify-content: space-between; align-self: center;" />
+        <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="options" class="button" style="justify-content: space-between; align-self: center;" />
+        <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="quit" class="button" style="justify-content: space-between; align-self: center;" />
+    </ui:VisualElement>
 </ui:UXML>
