@@ -46,8 +46,8 @@ public class MainMenuEvents : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Game Started");
-        // switch to MainScene
-        SceneManager.LoadScene("MainScene");
+        // switch to GameScene
+        SceneManager.LoadScene("GameScene");
     }
 
     private void QuitGame()
