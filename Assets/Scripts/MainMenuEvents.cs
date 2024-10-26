@@ -47,6 +47,7 @@ public class MainMenuEvents : MonoBehaviour
     {
         Debug.Log("Game Started");
         // switch to GameScene
+        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
     }
 
