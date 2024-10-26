@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -23,7 +24,7 @@ public class Spawner : MonoBehaviour
                 for (int j = 0; j < 3; j++)
                 {
                     int randomidx = Random.Range(0, GameController.current.Tiles.Count);
-                    if (i != 1) while (GameController.current.Tiles[randomidx].name.Contains("empty"))
+                    if (i != 1) while (GameController.current.Tiles[randomidx].name.ContainsInsensitive("empty") || GameController.current.Tiles[randomidx].name.ContainsInsensitive("obstacle"))
                             randomidx = Random.Range(0, GameController.current.Tiles.Count);
                     GameObject newtile = Instantiate(GameController.current.Tiles[randomidx]);
                     newtile.transform.parent = newchunk.transform;

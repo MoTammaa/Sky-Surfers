@@ -14,6 +14,7 @@ public class Tile
         Supplies,
         Boost,
         Sticky,
+        Obstacle,
     }
 
     public static void DoAction(string name) => DoAction(GetTileType(name));
@@ -47,6 +48,11 @@ public class Tile
                     GameController.current.game.GameSpeedMultiplier = 1f;
                     break;
                 }
+            case TileType.Obstacle:
+                {
+                    GameController.current.game.CurrentState = GameState.GameOver;
+                    break;
+                }
             default:
                 {
                     // revert to normal
@@ -68,6 +74,8 @@ public class Tile
             return TileType.Boost;
         if (name.ContainsInsensitive("sticky"))
             return TileType.Sticky;
+        if (name.ContainsInsensitive("obstacle"))
+            return TileType.Obstacle;
         return TileType.Normal; // norm or other
     }
 

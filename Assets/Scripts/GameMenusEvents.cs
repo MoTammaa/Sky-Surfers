@@ -122,6 +122,7 @@ public class GameMenusEvents : MonoBehaviour
         if (GameController.current.game.CurrentState == Game.GameState.GameOver)
         {
             Time.timeScale = 0;
+            _pauseMenuDocument.rootVisualElement.style.display = DisplayStyle.None;
             _gameoverMenuDocument.rootVisualElement.style.display = DisplayStyle.Flex;
             // show score
             _score.text = "Your Score: " + Math.Round(GameController.current.game.Score, 0);

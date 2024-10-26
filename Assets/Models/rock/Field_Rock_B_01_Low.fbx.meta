@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca2a2cdaa0e82a248a64dddec874cf90
+guid: 66f54ce73fe9a1e429ec1dc1319236ff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 2100000, guid: 7e87df2dcb22c0b4f907a3082a806eb4, type: 2}
+      name: Field_Rock_B
+    second: {fileID: 2100000, guid: 949c1a72413bd934a8a8880b56a4a830, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 3
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -95,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 3
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

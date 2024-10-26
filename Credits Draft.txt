@@ -5,3 +5,5 @@ Start Line: "Start Finish Race Checkered Line" (https://skfb.ly/oJKSt) by ahmeds
 SkyBox: https://polyhaven.com/a/fouriesburg_mountain_cloudy
 
 rock terrain in menu: "Rock terrain" (https://skfb.ly/opuyv) by Lassi Kaukonen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+obstacle rock: "Rock B" (https://skfb.ly/6WOHB) by GunZ3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
