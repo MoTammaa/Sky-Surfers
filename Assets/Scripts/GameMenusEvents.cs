@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class GameMenusEvents : MonoBehaviour
 
     public UIDocument _pauseMenuDocument, _gameoverMenuDocument;
     private Button _resume, _pauseresart, _pausebackToMenu, _gameoverrestart, _gameoverbackToMenu;
+    private Label _score, _infoText;
 
     private void Awake()
     {
@@ -22,40 +24,52 @@ public class GameMenusEvents : MonoBehaviour
                 else if (child.name.ContainsInsensitive("over"))
                     _gameoverMenuDocument = child.GetComponent<UIDocument>();
             }
-        if (_pauseMenuDocument != null)
+
+        _resume = _pauseMenuDocument.rootVisualElement.Q<Button>("resume");
+        _pauseresart = _pauseMenuDocument.rootVisualElement.Q<Button>("restart");
+        _pausebackToMenu = _pauseMenuDocument.rootVisualElement.Q<Button>("quit");
+
+
+        _gameoverrestart = _gameoverMenuDocument.rootVisualElement.Q<Button>("restart");
+        _gameoverbackToMenu = _gameoverMenuDocument.rootVisualElement.Q<Button>("quit");
+        _score = _gameoverMenuDocument.rootVisualElement.Q<Label>("score");
+        _infoText = _gameoverMenuDocument.rootVisualElement.Q<Label>("info");
+
+
+        _resume.clicked += () => { ResumeGame(); };
+        _pauseresart.clicked += () => { RestartGame(); };
+        _pausebackToMenu.clicked += () => { BackToMenu(); };
+
+        _gameoverrestart.clicked += () => { RestartGame(); };
+        _gameoverbackToMenu.clicked += () => { BackToMenu(); };
+
+
+        // UI adjustments ///////////////////////////////////////////////////////////////////////////////////////////////
+        VisualElement pausePanel = _pauseMenuDocument.rootVisualElement.Q<VisualElement>("Panel"),
+            gameoverPanel = _gameoverMenuDocument.rootVisualElement.Q<VisualElement>("Panel"),
+            gameoverButtonsPanel = _gameoverMenuDocument.rootVisualElement.Q<VisualElement>("buttons");
+        foreach (var panel in new VisualElement[] { pausePanel, gameoverPanel, gameoverButtonsPanel })
         {
-            _resume = _pauseMenuDocument.rootVisualElement.Q<Button>("resume");
-            _pauseresart = _pauseMenuDocument.rootVisualElement.Q<Button>("restart");
-            _pausebackToMenu = _pauseMenuDocument.rootVisualElement.Q<Button>("quit");
+            panel.style.flexDirection = panel == gameoverButtonsPanel ? FlexDirection.Row : FlexDirection.Column;
+            panel.style.flexGrow = 0;
+            panel.style.flexShrink = 0;
+            panel.style.paddingTop = panel.style.paddingBottom = panel.style.paddingLeft = panel.style.paddingRight = 10 * (panel == gameoverButtonsPanel ? 5 : 1);
+            panel.style.marginTop = panel.style.marginBottom = panel.style.marginLeft = panel.style.marginRight = 5;
         }
-        if (_gameoverMenuDocument != null)
+        _gameoverrestart.RegisterCallback<GeometryChangedEvent>(evt =>
         {
-            _gameoverrestart = _gameoverMenuDocument.rootVisualElement.Q<Button>("restart");
-            _gameoverbackToMenu = _gameoverMenuDocument.rootVisualElement.Q<Button>("quit");
-        }
+            _gameoverrestart.style.height = _gameoverrestart.resolvedStyle.width;
+        });
 
-        if (_resume != null)
-            _resume.clicked += () => { ResumeGame(); };
-        if (_pauseresart != null)
-            _pauseresart.clicked += () => { RestartGame(); };
-        if (_pausebackToMenu != null)
-            _pausebackToMenu.clicked += () => { BackToMenu(); };
+        _gameoverbackToMenu.RegisterCallback<GeometryChangedEvent>(evt =>
+        {
+            _gameoverbackToMenu.style.height = _gameoverbackToMenu.resolvedStyle.width;
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (_gameoverrestart != null)
-            _gameoverrestart.clicked += () => { RestartGame(); };
-        if (_gameoverbackToMenu != null)
-            _gameoverbackToMenu.clicked += () => { BackToMenu(); };
-
-        if (_pauseMenuDocument != null)
-            _pauseMenuDocument.rootVisualElement.style.display = DisplayStyle.None;
-
-        VisualElement container = _pauseMenuDocument.rootVisualElement.Q<VisualElement>("Panel");
-        container.style.flexDirection = FlexDirection.Column;
-        container.style.flexGrow = 0;
-        container.style.flexShrink = 0;
-        container.style.paddingTop = 10;
-        container.style.marginTop = 5;
-
+        // hide all menus
+        _pauseMenuDocument.rootVisualElement.style.display = DisplayStyle.None;
+        _gameoverMenuDocument.rootVisualElement.style.display = DisplayStyle.None;
     }
 
     private void ResumeGame()
@@ -70,6 +84,7 @@ public class GameMenusEvents : MonoBehaviour
     {
         Debug.Log("Game Restarted");
         // reload current scene
+        GameController.current.game.StartGame();
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -83,16 +98,13 @@ public class GameMenusEvents : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
         // check for pause by ESC key
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GameController.current.game.CurrentState == Game.GameState.Playing)
         {
             if (Time.timeScale == 0)
             {
@@ -105,5 +117,16 @@ public class GameMenusEvents : MonoBehaviour
                 _pauseMenuDocument.rootVisualElement.style.display = DisplayStyle.Flex;
             }
         }
+
+        // check for gameover
+        if (GameController.current.game.CurrentState == Game.GameState.GameOver)
+        {
+            Time.timeScale = 0;
+            _gameoverMenuDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            // show score
+            _score.text = "Your Score: " + Math.Round(GameController.current.game.Score, 0);
+            _infoText.text = Math.Round(GameController.current.game.fuel, 0) <= 0 ? "You ran out of fuel!" : "";
+        }
+
     }
 }
