@@ -4,6 +4,25 @@ Start Line: "Start Finish Race Checkered Line" (https://skfb.ly/oJKSt) by ahmeds
 
 SkyBox: https://polyhaven.com/a/fouriesburg_mountain_cloudy
 
-rock terrain in menu: "Rock terrain" (https://skfb.ly/opuyv) by Lassi Kaukonen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+Rock terrain in menu: "Rock terrain" (https://skfb.ly/opuyv) by Lassi Kaukonen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
-obstacle rock: "Rock B" (https://skfb.ly/6WOHB) by GunZ3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+Obstacle rock: "Rock B" (https://skfb.ly/6WOHB) by GunZ3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+
+Powerup: Power Boost by colorsCrimsonTears -- https://freesound.org/s/585803/ -- License: Creative Commons 0
+
+Achievement: Sound Effect by Ribhav Agrawal from https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=230515 - Pixabay
+
+Fire: Sound Effect by Max Hammarbäck from https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=21991 - Pixabay 
+
+Violin lose: Sound Effect by floraphonic from https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=175615 - Pixabay
+
+Crash: Sound Effect from Pixabay https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6711 
+
+Negative impact: Light Impact by EminYILDIRIM -- https://freesound.org/s/668246/ -- License: Attribution 4.0
+
+Jingle Lose: Jingle_Lose_00.wav by LittleRobotSoundFactory -- https://freesound.org/s/270467/ -- License: Attribution 4.0
+
+Invalid: error by Leszek_Szary -- https://freesound.org/s/171524/ -- License: Creative Commons 0
+
+Mainmenu track: by https://www.purple-planet.com/tracks/i-will-find-him
