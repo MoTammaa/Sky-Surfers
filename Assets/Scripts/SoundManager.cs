@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Tile;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,8 +11,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicSource;
     public AudioSource[] SFXSource;
     public AudioClip boost, crash, sticky, supply, burning, fall, invalid, mainmenu, gameover, gamepause;
+    public Dictionary<TileType, AudioClip> TileSounds;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (current == null)
             current = this;
@@ -18,6 +22,17 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
+        TileSounds = new Dictionary<TileType, AudioClip>
+    {
+        { TileType.Obstacle, crash },
+        { TileType.Normal, null },
+        { TileType.Burning, burning },
+        { TileType.Supplies, supply },
+        { TileType.Boost, boost },
+        { TileType.Sticky, sticky },
+        { TileType.Empty, fall },
+    };
     }
 
     // Update is called once per frame
@@ -32,6 +47,7 @@ public class SoundManager : MonoBehaviour
             return;
         MusicSource.clip = music;
         MusicSource.Play();
+        MusicSource.loop = true;
     }
 
     public void PlaySFX(AudioClip sfx)
@@ -103,6 +119,18 @@ public class SoundManager : MonoBehaviour
     public void StopGameOver() => StopMusic();
     public void StopGamePause() => StopMusic();
 
-
+    public Dictionary<TileType, bool> IsTileSoundPlayingUpdate()
+    {
+        return new Dictionary<TileType, bool>
+        {
+            { TileType.Obstacle, SFXSource.Any(source => source.clip == crash && source.isPlaying) },
+            { TileType.Normal, false },
+            { TileType.Burning, SFXSource.Any(source => source.clip == burning && source.isPlaying) },
+            { TileType.Supplies, SFXSource.Any(source => source.clip == supply && source.isPlaying) },
+            { TileType.Boost, SFXSource.Any(source => source.clip == boost && source.isPlaying) },
+            { TileType.Sticky, SFXSource.Any(source => source.clip == sticky && source.isPlaying) },
+            { TileType.Empty, SFXSource.Any(source => source.clip == fall && source.isPlaying) },
+        };
+    }
 
 }

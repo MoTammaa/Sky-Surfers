@@ -33,18 +33,23 @@ public class BallController : MonoBehaviour
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, rayDistance, groundLayer);
 
-        if (Input.GetButtonDown("Jump") && isGrounded && canJump)
-        {
-            Jump();
-        }
+        if (Input.GetButtonDown("Jump"))
+            if (isGrounded && canJump)
+                Jump();
+            else SoundManager.current.PlayInvalid();
 
-        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && lane < 1)
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            ChangeLane(lane + 1);
+            if (lane < 1)
+                ChangeLane(lane + 1);
+            else SoundManager.current.PlayInvalid();
+
         }
-        else if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && lane > -1)
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            ChangeLane(lane - 1);
+            if (lane > -1)
+                ChangeLane(lane - 1);
+            else SoundManager.current.PlayInvalid();
         }
 
     }

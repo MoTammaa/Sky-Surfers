@@ -85,12 +85,19 @@ public class MainMenuEvents : MonoBehaviour
     void Start()
     {
         // start playing menu music
-        SoundManager.current.PlayMainMenu();
+        StartCoroutine(StartMainMenuMusic());
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    IEnumerator StartMainMenuMusic()
+    {
+        while (SoundManager.current == null)
+            yield return new WaitForSeconds(0.5f);
+        SoundManager.current.PlayMainMenu();
     }
 }

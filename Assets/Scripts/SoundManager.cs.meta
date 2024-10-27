@@ -9,7 +9,7 @@ MonoImporter:
   - crash: {fileID: 8300000, guid: d00e572593a1a3c4d8ae30b9d2c53422, type: 3}
   - sticky: {fileID: 8300000, guid: 3da079d653a3d4241acee33a2be0b535, type: 3}
   - supply: {fileID: 8300000, guid: 8f723c5e16d8dce4da424f0398ecccf3, type: 3}
-  - burning: {fileID: 8300000, guid: be67ab0c21ffe3d4785b3603a7f7642a, type: 3}
+  - burning: {fileID: 8300000, guid: 7c7ed996f91993b41bef2bdc015f1c67, type: 3}
   - fall: {fileID: 8300000, guid: 7814b44cb8bcf944087c1b6f334e8881, type: 3}
   - invalid: {fileID: 8300000, guid: 28d011a1a7bf1d4498bce0e946cdbe83, type: 3}
   - mainmenu: {fileID: 8300000, guid: a343072e3479454458acc69beee080cc, type: 3}
