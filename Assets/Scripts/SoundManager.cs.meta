@@ -13,10 +13,10 @@ MonoImporter:
   - fall: {fileID: 8300000, guid: 7814b44cb8bcf944087c1b6f334e8881, type: 3}
   - invalid: {fileID: 8300000, guid: 28d011a1a7bf1d4498bce0e946cdbe83, type: 3}
   - mainmenu: {fileID: 8300000, guid: 880a558c819adb440a256b6779c7d509, type: 3}
-  - gameover: {fileID: 8300000, guid: 201975a1bb12005468a6fca18b95e913, type: 3}
+  - gameover: {fileID: 8300000, guid: c35f9bdf2e782b34f9a6d16de689bb46, type: 3}
   - gamepause: {fileID: 8300000, guid: fb7679d952c5f7247befd35dbdcc19ec, type: 3}
   - gametrack: {fileID: 8300000, guid: 6539ec313ba479240b51fa8189398e0f, type: 3}
-  - gamelostmusic: {fileID: 8300000, guid: 7da85dd9a0b636e43bb4ba1145a6fd17, type: 3}
+  - gamelostmusic: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

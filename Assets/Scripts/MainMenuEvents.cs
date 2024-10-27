@@ -37,6 +37,8 @@ public class MainMenuEvents : MonoBehaviour
         _backToMenu.clicked += () => { BackToMenu(); };
         _soundToggle.RegisterValueChangedCallback((evt) => { ToggleSound(evt.newValue); });
 
+        _soundToggle.value = SoundManager.SoundEnabled;
+
 
 
         _optionsDocument.rootVisualElement.style.display = DisplayStyle.None;

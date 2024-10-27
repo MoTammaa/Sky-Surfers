@@ -28,7 +28,10 @@ public class Game
         Score = 0;
         fuel = 50;
         fuelRate = 1;
+        Time.timeScale = 1;
+        GameController.current.StartCoroutine(GameController.current.StartGameMusic());
     }
+
 
     public void EndGame()
     {

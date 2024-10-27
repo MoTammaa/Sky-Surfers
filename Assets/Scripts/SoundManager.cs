@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     public static bool SoundEnabled = true;
     public AudioSource MusicSource;
     public AudioSource[] SFXSource;
-    public AudioClip boost, crash, sticky, supply, burning, fall, invalid, mainmenu, gameover, gamepause, gametrack, gamelostmusic;
+    public AudioClip boost, crash, sticky, supply, burning, fall, invalid, mainmenu, gameover, gamepause, gametrack;
     public Dictionary<TileType, AudioClip> TileSounds;
 
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class SoundManager : MonoBehaviour
             return;
         MusicSource.clip = music;
         MusicSource.Play();
+        MusicSource.volume = 0.5f;
         MusicSource.loop = true;
     }
 
@@ -61,6 +62,9 @@ public class SoundManager : MonoBehaviour
             {
                 source.clip = sfx;
                 source.Play();
+                source.volume = 0.5f;
+                if (sfx == burning)
+                    source.volume = 1.0f;
                 played = true;
                 break;
             }
@@ -79,6 +83,13 @@ public class SoundManager : MonoBehaviour
     {
         foreach (AudioSource source in SFXSource)
             source.Stop();
+    }
+
+    public void StopSFX(AudioClip sfx)
+    {
+        foreach (AudioSource source in SFXSource)
+            if (source.clip == sfx)
+                source.Stop();
     }
 
     public void MuteGame()
@@ -115,9 +126,13 @@ public class SoundManager : MonoBehaviour
     public void PlayMainMenu() => PlayMusic(mainmenu);
     public void PlayGameOver() => PlayMusic(gameover);
     public void PlayGamePause() => PlayMusic(gamepause);
+    public void PlayGameTrack() => PlayMusic(gametrack);
     public void StopMainMenu() => StopMusic();
     public void StopGameOver() => StopMusic();
     public void StopGamePause() => StopMusic();
+    public void StopGameTrack() => StopMusic();
+    public void StopGameLostMusic() => StopMusic();
+
 
     public Dictionary<TileType, bool> IsTileSoundPlayingUpdate()
     {

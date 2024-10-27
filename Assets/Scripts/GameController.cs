@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
         if (game.CurrentState == Game.GameState.GameOver)
         {
             Debug.Log("Game Over");
+            SoundManager.current.PlayGameOver();
             Time.timeScale = 0;
         }
 
@@ -66,4 +67,10 @@ public class GameController : MonoBehaviour
     }
 
 
+    public IEnumerator StartGameMusic()
+    {
+        while (SoundManager.current == null)
+            yield return new WaitForSeconds(0.5f);
+        SoundManager.current.PlayGameTrack();
+    }
 }
