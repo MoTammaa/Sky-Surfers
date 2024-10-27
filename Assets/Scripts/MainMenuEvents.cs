@@ -75,7 +75,7 @@ public class MainMenuEvents : MonoBehaviour
     {
         Debug.Log("Sound Toggled: " + soundOn);
         // toggle sound
-        GameController.SoundEnabled = soundOn;
+        SoundManager.current.SetSoundEnabled(soundOn);
     }
 
 
@@ -84,7 +84,8 @@ public class MainMenuEvents : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // start playing menu music
+        SoundManager.current.PlayMainMenu();
     }
 
     // Update is called once per frame
