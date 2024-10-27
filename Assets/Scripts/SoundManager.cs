@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     public static bool SoundEnabled = true;
     public AudioSource MusicSource;
     public AudioSource[] SFXSource;
-    public AudioClip boost, crash, sticky, supply, burning, fall, invalid, mainmenu, gameover, gamepause;
+    public AudioClip boost, crash, sticky, supply, burning, fall, invalid, mainmenu, gameover, gamepause, gametrack, gamelostmusic;
     public Dictionary<TileType, AudioClip> TileSounds;
 
     // Start is called before the first frame update
